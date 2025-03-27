@@ -1,9 +1,24 @@
+/* Base Variables */
+:root {
+  --background-color: #f9f9f9;
+  --text-color: #333;
+  --box-background: rgba(0, 128, 255, 0.5);
+  --box-border-color: #0078d4;
+  --box-border-width: 4px;
+  --code-background: #eee;
+  --code-text: #121212;
+  --font-weight: normal;
+}
+
 /* Base Styles */
 .media-demo {
   font-family: sans-serif;
   text-align: center;
   padding: 2rem;
+  background-color: var(--background-color);
+  color: var(--text-color);
   transition: background-color 0.5s ease, color 0.5s ease;
+  font-weight: var(--font-weight);
 }
 
 .media-demo__header {
@@ -20,7 +35,8 @@
 }
 
 .media-demo__code {
-  background-color: #eee;
+  background-color: var(--code-background);
+  color: var(--code-text);
   padding: 0.2rem 0.4rem;
   border-radius: 4px;
 }
@@ -29,10 +45,11 @@
   width: 150px;
   height: 150px;
   margin: 2rem auto;
-  background-color: rgba(0, 128, 255, 0.5);
-  border: 4px solid #0078d4;
+  background-color: var(--box-background);
+  border: var(--box-border-width) solid var(--box-border-color);
   border-radius: 10px;
-  transition: transform 2s ease, background-color 0.5s ease;
+  transition: transform 2s ease, background-color 0.5s ease,
+    border-color 0.5s ease;
 }
 
 /* Prefers Reduced Motion */
@@ -52,77 +69,59 @@
 
 /* Prefers Reduced Transparency */
 @media (prefers-reduced-transparency: reduce) {
-  .media-demo__box {
-    background-color: #0078d4;
+  :root {
+    --box-background: #0078d4;
   }
 }
 
 /* Color Scheme Adjustments */
 @media (prefers-color-scheme: dark) {
-  .media-demo {
-    background-color: #121212;
-    color: #f0f0f0;
-  }
-  .media-demo__box {
-    border-color: #bb86fc;
-  }
-  .media-demo__code {
-    color: #121212;
+  :root {
+    --background-color: #121212;
+    --text-color: #f0f0f0;
+    --box-border-color: #bb86fc;
+    /* You can adjust code colors if needed */
   }
 }
 
 @media (prefers-color-scheme: light) {
-  .media-demo {
-    background-color: #f9f9f9;
-    color: #333;
-  }
-  .media-demo__box {
-    border-color: #0078d4;
+  :root {
+    --background-color: #f9f9f9;
+    --text-color: #333;
+    --box-border-color: #0078d4;
   }
 }
 
 /* High Contrast Adjustments for Dark Scheme */
 @media (prefers-contrast: more) and (prefers-color-scheme: dark) {
-  .media-demo {
-    background-color: black;
-    color: white;
-    font-weight: bold;
-  }
-  .media-demo__box {
-    border-width: 6px;
-    border-color: white;
-    background-color: black;
-  }
-  .media-demo__code {
-    background-color: white;
-    color: black;
+  :root {
+    --background-color: black;
+    --text-color: white;
+    --box-background: black;
+    --box-border-color: white;
+    --code-background: white;
+    --code-text: black;
+    --font-weight: bold;
   }
 }
 
 /* High Contrast Adjustments for Light Scheme */
 @media (prefers-contrast: more) and (prefers-color-scheme: light) {
-  .media-demo {
-    background-color: white;
-    color: black;
-    font-weight: bold;
-  }
-  .media-demo__box {
-    border-width: 6px;
-    border-color: black;
-    background-color: white;
-  }
-  .media-demo__code {
-    background-color: black;
-    color: white;
+  :root {
+    --background-color: white;
+    --text-color: black;
+    --box-background: white;
+    --box-border-color: black;
+    --code-background: black;
+    --code-text: white;
+    --font-weight: bold;
   }
 }
 
 /* Less Contrast Adjustments */
 @media (prefers-contrast: less) {
-  .media-demo {
-    font-weight: normal;
-  }
-  .media-demo__box {
-    border-width: 2px;
+  :root {
+    --font-weight: normal;
+    --box-border-width: 2px;
   }
 }
