@@ -67,7 +67,7 @@
     border-color: #bb86fc;
   }
   .media-demo__code {
-    color: black;
+    color: #121212;
   }
 }
 
@@ -81,16 +81,43 @@
   }
 }
 
-/* Contrast Adjustments */
-@media (prefers-contrast: more) {
+/* High Contrast Adjustments for Dark Scheme */
+@media (prefers-contrast: more) and (prefers-color-scheme: dark) {
   .media-demo {
+    background-color: black;
+    color: white;
     font-weight: bold;
   }
   .media-demo__box {
     border-width: 6px;
+    border-color: white;
+    background-color: black;
+  }
+  .media-demo__code {
+    background-color: white;
+    color: black;
   }
 }
 
+/* High Contrast Adjustments for Light Scheme */
+@media (prefers-contrast: more) and (prefers-color-scheme: light) {
+  .media-demo {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+  }
+  .media-demo__box {
+    border-width: 6px;
+    border-color: black;
+    background-color: white;
+  }
+  .media-demo__code {
+    background-color: black;
+    color: white;
+  }
+}
+
+/* Less Contrast Adjustments */
 @media (prefers-contrast: less) {
   .media-demo {
     font-weight: normal;
